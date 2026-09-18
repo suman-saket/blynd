@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
-from src.database import close_db, init_db
+from src.core.database import close_db, init_db
 from src.identity.router import router as identity_router
 from src.profiles.router import router as profiles_router
 

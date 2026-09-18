@@ -1,0 +1,23 @@
+---
+description: Backend module folder layout — schemas, models, services, middleware
+globs: backend/**/*.py
+alwaysApply: false
+---
+
+# Module folders
+
+Each domain package (`identity/`, `profiles/`, later matching, chat, …) uses folders, not one `schemas.py`.
+
+```text
+src/<module>/
+  router.py
+  schemas/       # one file per request or response model
+  models/        # Beanie documents
+  services/      # business logic
+  middleware/    # module-specific FastAPI dependencies
+```
+
+- Do not add a global `dto/`, `controllers/`, or `schemas/` at `src/` root.
+- `core/` stays shared infra (`config.py`, `database.py`) — not a feature module.
+- New product areas get a new package with this same layout.
+- Split a schema file only inside that module’s `schemas/` folder.
