@@ -1,9 +1,9 @@
 from bson.errors import InvalidId
 from bson.objectid import ObjectId
 
-from src.identity.models.user import User
+from src.identity.models import User
 from src.profiles.exceptions import ProfileAlreadyCompleted, UserNotFound
-from src.profiles.schemas.profile_create import ProfileCreate, ProfileResponse
+from src.profiles.schemas import ProfileCreate, ProfileResponse
 
 
 async def complete_profile(body: ProfileCreate) -> ProfileResponse:

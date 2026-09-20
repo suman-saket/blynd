@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException
 
 from src.profiles.exceptions import ProfileAlreadyCompleted, UserNotFound
-from src.profiles.schemas.profile_create import ProfileCreate, ProfileResponse
-from src.profiles.services.profile import complete_profile
+from src.profiles.schemas import ProfileCreate, ProfileResponse
+from src.profiles.services import complete_profile
 
 router = APIRouter(prefix="/profiles", tags=["profiles"])
 

@@ -1,6 +1,7 @@
 from datetime import date
 
 from beanie import Document
+from pymongo import ASCENDING, IndexModel
 
 
 class User(Document):
@@ -20,3 +21,6 @@ class User(Document):
 
     class Settings:
         name = "users"
+        indexes = [
+            IndexModel([("phone", ASCENDING)], unique=True, sparse=True),
+        ]
