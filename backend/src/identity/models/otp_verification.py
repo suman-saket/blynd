@@ -11,7 +11,7 @@ class OtpChallenge(Document):
     consumed: bool
 
     class Settings:
-        name = "otp_challenges"
+        name = "otp_verification"
         indexes = [
             IndexModel([("phone", ASCENDING)]),
         ]

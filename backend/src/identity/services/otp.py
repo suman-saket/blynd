@@ -3,7 +3,8 @@ import secrets
 from datetime import datetime, timedelta, timezone
 from src.identity.config import OTP_LENGTH, OTP_TTL_SECONDS
 from src.identity.exceptions import AgeNotVerified, InvalidOtp, TermsNotAccepted
-from src.identity.models.otp_challenge import OtpChallenge
+from src.identity.models.enums import VerificationStatus
+from src.identity.models.otp_verification import OtpChallenge
 from src.identity.models.user import User
 from src.identity.schemas.auth_response import AuthResponse
 from src.identity.schemas.otp_request import OtpRequestResponse
@@ -110,9 +111,11 @@ async def insert_user_from_otp(
         preferences=[],
         location=None,
         education=None,
-        work=None,
+        occupation=None,
         bio=None,
         profile_completed=False,
+        verification_selfie_url=None,
+        verification_status=VerificationStatus.NOT_SUBMITTED,
     )
     await user.insert()
     return user

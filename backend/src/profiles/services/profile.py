@@ -25,7 +25,7 @@ async def complete_profile(body: ProfileCreate) -> ProfileResponse:
     user.preferences = body.preferences
     user.location = body.location
     user.education = body.education
-    user.work = body.work
+    user.occupation = body.occupation
     user.bio = body.bio
     user.profile_completed = True
     await user.save()
@@ -39,6 +39,6 @@ async def complete_profile(body: ProfileCreate) -> ProfileResponse:
         preferences=user.preferences,
         location=user.location,
         education=user.education,
-        work=user.work,
+        occupation=user.occupation,
         bio=user.bio,
     )
